@@ -1,0 +1,260 @@
+%---------------------------------------------------------------------------------------
+% File:                 phd_thesis_template.tex
+% Original Author:      Ivan Colucci
+% Revised & Adapted:    Carlos Pavon
+% Created:              January 2020
+% Last Modified:        22/05/2025
+
+% Description:
+%   A customizable LaTeX template for PhD theses at the
+%   Università degli Studi di Salerno within the
+%   National PhD on Photovoltaics.
+
+% Usage:
+%   Free for non-commercial academic use. 
+%   Modifiable and shareable within the National PhD on Photovoltaics program.
+%   Recommended for official submissions and archiving purposes.
+
+% Change Log:
+%   [v1.0]  Initial release with institutional header.................... IC
+%   [v1.1]  Adapted for National PhD program, formatting adjustments, 
+%           comments, and package management............................. CP
+%   [v1.2]  ............................................................. XX
+
+% Compilation Requirements:
+%   Ensure the following files and directories are present for successful compilation:
+%   - Figures/: image.png           (Add images - organize in subfolders if needed)
+%   - Sections/: Introduction.tex   (Add more sections as needed)
+%   - main.tex                  
+%   - logo_unisa.png            
+%   - references.bib            
+
+% Notes:
+%   This template includes dummy text (Lorem Ipsum) and placeholders 
+%   for images and tables, serving as examples for usage. 
+%
+%   Wishing all PhD candidates a productive and smooth writing experience!
+%---------------------------------------------------------------------------------------
+
+% DEFINES OVERALL LAYOUT AND STRUCTURE
+\documentclass[a4paper, 12pt, twoside]{book}
+
+% BASIC DOCUMENT SETUP AND ENCODING
+\usepackage[utf8]{inputenc}         % Input encoding for special characters
+\usepackage[T1]{fontenc}            % Hyphenation and character display
+\usepackage[margin=3cm, bindingoffset=1cm]
+            {geometry}              % Sets page margins
+\linespread{1.5}                    % Sets line spacing
+
+% MATHEMATICS & SYMBOLS
+\usepackage{amsmath}                % Features for mathematical equations
+\usepackage{amssymb}                % Additional mathematical symbols
+\usepackage{amsfonts}               % Provides additional math fonts
+\usepackage{gensymb}                % Symbols like degree, permille, etc.
+\usepackage{latexsym}               % Provides additional LaTeX symbols
+
+% REFERENCING AND LINKS
+\usepackage{cite}                           % Citation handling and formatting
+\usepackage[hidelinks]{hyperref}            % Hyperlinks within the document
+    \newcommand{\figref}[1]{Fig.~\ref{#1}}  % References for Figures
+    \newcommand{\tabref}[1]{Tab.~\ref{#1}}  % References for Tables
+    \newcommand{\equref}[1]{Eq.~\ref{#1}}   % References for Equations
+
+% GRAPHICS AND IMAGES
+\usepackage{graphicx}               % For including images
+\usepackage{svg}                    % Enables inclusion of SVG images
+\usepackage{float}                  % Provides enhanced control over float placement
+
+% CAPTIONS PERSONALIZATION
+\usepackage[font=small,skip=1pt,
+            labelfont=sf,textfont=normalfont]
+            {caption}               % Customizes caption appearance
+\usepackage{subcaption}             % create subfigures and subtables
+
+% ALGORITHMS AND CODE LISTINGS
+\usepackage{algorithmic}            % Tools for typesetting pseudocode algorithms
+\usepackage{listings}               % Formatting of source code listings
+
+% TEXT, COLORS, AND TABLES
+\usepackage{textcomp}               % Additional text symbols (€, ©, ™)
+\usepackage{xcolor}                 % Adds color capabilities to your document
+\usepackage{csquotes}               % Provides context-sensitive quotation marks
+\usepackage{booktabs}               % Enhances tables with professional-looking rules
+\usepackage{multirow}               % Allows table cells to span multiple rows
+\usepackage{colortbl}               % Color of individual rows, columns, or cells in tables
+\usepackage{array}                  % Functionality of 'array' and 'tabular'
+\usepackage{tabularray}             % Modern package for creating complex tables
+
+% LAYOUT AND SPACING
+\usepackage{indentfirst}            % Indents the first paragraph of each chapter or section
+\setlength{\parindent}{1cm}         % Sets the default paragraph indentation
+
+% HEADERS, FOOTERS, AND CHAPTER STYLE
+\usepackage{fancyhdr}               % Customizes headers and footers
+\setlength{\headheight}{10pt}       % Required by fancyhdr to prevent warnings
+\addtolength{\topmargin}{-2.5pt}    % Adjusts top margin slightly
+
+% UTILITIES AND MISCELLANEOUS
+\usepackage{blindtext}              % Generates dummy Lorem Ipsum-like text
+\usepackage{tikz}                   % Creating vector graphics
+\usepackage{comment}                % Comment out large blocks of text
+\usepackage{import}                 % Importing content from other files
+\usepackage{xkeyval}                % Provides key-value parsing capabilities
+
+% SPECIFIC TECHNICAL PACKAGES
+\usepackage[american]{circuitikz}   % Draws electrical circuits using TikZ
+
+% ORCID
+\usepackage{orcidlink}              % Provides a command to link to an ORCID profile
+
+% PATH FOR GRAPHICS
+\graphicspath{ {./Figures/} }       % Specifies the default directory for figures
+
+%% CUSTOM COMMANDS AND DEFINITIONS %%
+
+% Bibtex
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+  T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}   % BibTeX formatting definition
+
+% SPICE in listings
+\lstdefinelanguage{Spice}{
+  morekeywords={.meas, DC, FIND, WHEN, MAX, .step, PARAM},
+  sensitive=false,                                  % Keywords are not case-sensitive
+  morecomment=[l]{*},                               % Single-line comments start with '*'
+  morestring=[b]"                                   % Strings are enclosed in double quotes
+}
+
+% ORCID Logo Setup
+\usepackage{scalerel}                               % For scaling the ORCID icon
+\usetikzlibrary{svg.path}                           % Enables TikZ to draw SVG paths
+\definecolor{orcidlogocol}{HTML}{A6CE39}            % Official ORCID green color
+        \tikzset{
+          orcidlogo/.pic={
+            \fill[orcidlogocol] svg{M256,128c0,70.7-57.3,128-128,128C57.3,256,0,198.7,0,128C0,57.3,57.3,0,128,0C198.7,0,256,57.3,256,128z};
+            \fill[white] svg{M86.3,186.2H70.9V79.1h15.4v48.4V186.2z}
+                         svg{M108.9,79.1h41.6c39.6,0,57,28.3,57,53.6c0,27.5-21.5,53.6-56.8,53.6h-41.8V79.1z 
+                             M124.3,172.4h24.5c34.9,0,42.9-26.5,42.9-39.7c0-21.5-13.7-39.7-43.7-39.7h-23.7V172.4z}
+                         svg{M88.7,56.8c0,5.5-4.5,10.1-10.1,10.1
+                             c-5.6,0-10.1-4.6-10.1-10.1
+                             c0-5.6,4.5-10.1,10.1-10.1
+                             C84.2,46.7,88.7,51.3,88.7,56.8z};
+          }
+        }
+        \newcommand\orcidicon[1]{
+          \href{https://orcid.org/#1}{
+            \mbox{\scalerel*{
+              \begin{tikzpicture}[yscale=-1,transform shape]
+                \pic{orcidlogo};
+              \end{tikzpicture}
+            }{|}}
+          }
+        }
+
+% Acronyms and Glossaries
+\usepackage[acronym]{glossaries}                    % Manages glossaries
+\newacronym{sdm}{SDM}{Single Diode Model}           % Example {key}{SHORT}{Long Form} 
+    % The \gls{sdm} system...                       % In-text use for singular
+    % The \glspl{sdm} system...                     % In-text use for plural
+% \printglossary[type=\acronymtype, title=Acronyms] % Place to show acronyms
+
+% Dedication environment
+\newenvironment{dedication}
+  {\clearpage \thispagestyle{empty} \vspace*{\stretch{1}} \itshape \raggedleft}
+  {\par \vspace{\stretch{3}} \clearpage}
+
+\begin{document}
+
+% FRONT PAGE
+\begin{titlepage}
+    \begin{center}
+        \LARGE{\uppercase{Università degli Studi di Salerno}}\\
+        \vspace{5mm}
+        \large{\textbf{NATIONAL PHD IN PHOTOVOLTAICS}}\\
+        \normalsize{Curriculum: Power Electronics and Control}
+    \end{center}
+
+    \vspace{10mm}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.35\textwidth]{logo_unisa}
+    \end{figure}
+    
+    \vspace{10mm}
+    \begin{center}
+        {\Huge \bfseries PhD Thesis Title}\\
+        \vspace{5mm}
+        \Large{\textit{A Subtitle if Needed}}\\
+        \vspace{10mm}
+    \end{center}
+    
+    \noindent
+    \begin{minipage}[t]{0.47\textwidth}
+        {\large{Supervisor:\\ \bf Prof. Name LastName}}\\[8mm]
+        {\large{Co-Supervisor:\\ \bf Prof. Name LastName}}\\[8mm]
+        {\large{PhD Programm Director:\\ \bf Prof. Giovanni Spagnuolo}}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.4\textwidth}\raggedleft
+        {\large{PhD Candidate: \\ \bf Name LastName\\ Mat. 0123456789}}
+    \end{minipage}
+    
+    \vfill
+    \centering{\large XXXVIII Cycle \\ 2022 - 2025}
+\end{titlepage}
+
+\clearpage
+
+% Dedication
+\begin{dedication}
+
+    Dedicated to ...
+
+\end{dedication}
+
+
+% Table of Contents
+    \tableofcontents
+    \clearpage
+    \sloppy
+    \hyphenpenalty=10000
+    \exhyphenpenalty=10000
+
+% Inclusion of Chapters
+
+\include{Sections/Introduction.tex} % Recommended practice for maintaining a well-organized main.tex file
+
+\chapter{Literature Review}
+\blindtext[7] % Generates Lorem Ipsum
+
+\chapter{Methodology}
+\blindtext[5] % Generates Lorem Ipsum
+
+\chapter{Results and Discussion}
+\blindtext[7] % Generates Lorem Ipsum
+
+\chapter{Conclusion}
+\blindtext[3] % Generates Lorem Ipsum
+
+% Acknowledgements
+\chapter*{Acknowledgements}
+\thispagestyle{empty}
+\markboth{ACKNOWLEDGEMENTS}{}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\blindtext[1] % Generates Lorem Ipsum
+
+% Bibliography
+\clearpage
+\bibliographystyle{ieeetr}
+\bibliography{references.bib} % Make sure this file exists
+
+% Lists of Figures and Tables
+\clearpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\clearpage
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+\clearpage
+\end{document}
