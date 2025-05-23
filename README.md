@@ -36,6 +36,7 @@ It includes institutional branding, recommended formatting, and pre‑configured
 Arrange your files in the following folder hierarchy (the top‑level folder name is arbitrary):
 
 ```text
+
 PhDThesis/
 ├── main.tex               # Main LaTeX file
 ├── references.bib         # Bibliography file
@@ -46,6 +47,7 @@ PhDThesis/
 │   ├── Results.tex
 │   └── Conclusion.tex
 └── Figures/               # All figures grouped by chapter or section
+    ├── image.png
     ├── chapter1/
     │   ├── fig1.pdf
     │   └── fig2.png
