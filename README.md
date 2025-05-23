@@ -1,8 +1,11 @@
 # PhD Thesis LaTeX Template
 
 **Original Author:** Ivan Colucci.
+
 **Revised & Adapted By:** Carlos Pavon.
+
 **Created:** January 2020.
+
 **Last Modified:** 23 May 2025.
 
 ---
