@@ -37,12 +37,13 @@
 %---------------------------------------------------------------------------------------
 
 % DEFINES OVERALL LAYOUT AND STRUCTURE
-\documentclass[a4paper, 12pt, twoside]{book}
+\documentclass[b5paper, 10pt, twoside]{book}
+\usepackage{lmodern}                % Load scalable Latin Modern fonts
 
 % BASIC DOCUMENT SETUP AND ENCODING
 \usepackage[utf8]{inputenc}         % Input encoding for special characters
 \usepackage[T1]{fontenc}            % Hyphenation and character display
-\usepackage[margin=3cm, bindingoffset=1cm]
+\usepackage[margin=2.5cm, bindingoffset=1cm]
             {geometry}              % Sets page margins
 \linespread{1.5}                    % Sets line spacing
 
@@ -90,9 +91,50 @@
 \setlength{\parindent}{1cm}         % Sets the default paragraph indentation
 
 % HEADERS, FOOTERS, AND CHAPTER STYLE
-\usepackage{fancyhdr}               % Customizes headers and footers
-\setlength{\headheight}{10pt}       % Required by fancyhdr to prevent warnings
-\addtolength{\topmargin}{-2.5pt}    % Adjusts top margin slightly
+\usepackage{fancyhdr}               % Customize headers and footers
+\usepackage{titlesec}               % Customize chapter title formatting
+    \setlength{\headheight}{15pt}   % Ensure enough space for headers
+    \addtolength{\topmargin}{-2.5pt}% Slightly reduce top margin
+    % Enable fancy page style
+    \pagestyle{fancy}
+    \fancyhf{}                      
+    % Header text and centered chapter name
+    \fancyhead[LE]{\color{gray}\thepage}                 
+    \fancyhead[RE]{\color{gray}\nouppercase{\leftmark}}  
+    \fancyhead[LO]{\color{gray}\nouppercase{\leftmark}}  
+    \fancyhead[RO]{\color{gray}\thepage}                 
+    % Gray horizontal line under the header
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\headrule}{\color{gray}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}
+    % Chapter title format
+    \titleformat{\chapter}[display]
+      {\normalfont\huge\bfseries\color{gray}}       % Title style: normal font, huge size, bold, gray
+      {\hfill\fontsize{60}{75}\selectfont\color{gray}\thechapter} % Large, right-aligned chapter number
+      {0pt}                                         % No space between number and title
+      {\vspace{-2ex}\color{gray}}                   % Chapter title style and spacing
+      [\vspace{1ex}\titlerule]                      % Gray line below title   
+    % Adjust spacing before and after chapter title
+    \titlespacing*{\chapter}{10pt}{0pt}{20pt}        % {left}{before-sep}{after-sep}   
+    % Ensure chapter titles appear in \leftmark for headers
+    \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+    % Make section titles gray
+    \titleformat{\section}
+      {\normalfont\Large\bfseries\color{gray}}
+      {\thesection}                             
+      {1em}                                     
+      {}                                        
+    % Make subsection titles gray
+    \titleformat{\subsection}
+      {\normalfont\large\bfseries\color{gray}}
+      {\thesubsection}
+      {1em}
+      {}
+    % Make subsubsection titles gray
+    \titleformat{\subsubsection}
+      {\normalfont\normalsize\bfseries\color{gray}} 
+      {\thesubsubsection}
+      {1em}
+      {}
 
 % UTILITIES AND MISCELLANEOUS
 \usepackage{blindtext}              % Generates dummy Lorem Ipsum-like text
