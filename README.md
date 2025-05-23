@@ -36,7 +36,9 @@ It includes institutional branding, recommended formatting, and pre‑configured
 
 ## Compilation Requirements
 
-Arrange your files in the following folder hierarchy (the top‑level folder name is arbitrary):
+> **Recommended:** For a smoother experience, it is strongly suggested to use [Overleaf](https://www.overleaf.com/), an online LaTeX editor that simplifies compilation and collaboration.
+
+Ensure the following files and directories are present for successful LaTeX compilation:
 
 ```text
 
