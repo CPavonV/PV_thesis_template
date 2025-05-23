@@ -35,3 +35,25 @@ It includes institutional branding, recommended formatting, and pre-configured e
 
 Ensure the following files and directories are present for successful LaTeX compilation:
 
+├── Figures/
+│ └── image.png # Add figures (organize in subfolders if needed)
+├── Sections/
+│ └── Introduction.tex # Add more sections as needed
+├── main.tex # Main LaTeX file
+├── logo_unisa.png # Institutional logo
+└── references.bib # Bibliography file
+
+---
+
+## Notes
+
+- This template includes dummy text (Lorem Ipsum) and placeholders for images and tables, providing examples of usage.
+- Aims to help PhD candidates focus more on writing and research, rather than formatting.
+
+---
+
+## Good Luck!
+
+Wishing all PhD candidates a **productive and smooth writing experience**!
+
+
