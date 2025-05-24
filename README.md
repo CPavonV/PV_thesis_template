@@ -43,9 +43,10 @@ Ensure the following files and directories are present for successful LaTeX comp
 ```text
 
 PhDThesis/
-├── main.tex               # Main LaTeX file
-├── references.bib         # Bibliography file
 ├── logo_unisa.png         # Institutional logo
+├── main.tex               # Main LaTeX file
+├── pv_phd.cls             # Main LaTeX file
+├── references.bib         # Bibliography file
 ├── Sections/              # Each chapter/section as a separate .tex file
 │   ├── Introduction.tex
 │   ├── Methods.tex
