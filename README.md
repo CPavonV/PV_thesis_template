@@ -47,10 +47,10 @@ PhDThesis/
 ├── pv_phd.cls             # Class LaTeX file
 ├── references.bib         # Bibliography file
 ├── Sections/              # Each chapter/section as a separate .tex file
-│   ├── Introduction.tex
-│   ├── Methods.tex
-│   ├── Results.tex
-│   └── Conclusion.tex
+│   ├── 01_Introduction.tex
+│   ├── 02_Literature_Review.tex
+│   ├── 03_Results.tex
+│   └── 04_Conclusion.tex
 └── Figures/               # All figures grouped by chapter or section
     ├── image.png
     ├── chapter1/
