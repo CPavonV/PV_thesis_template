@@ -1,11 +1,12 @@
-# PhD Thesis LaTeX Template [View the PDF](./Thesis_Template.pdf)
-
++# PhD Thesis LaTeX Template
 
 **Original Author:** Carlos Pavon.
 
 **Created:** January 2020.
 
 **Last Modified:** 26 May 2025.
+
+** [View the PDF] ** (./Phd_thesis_template.pdf)
 
 ---
 
