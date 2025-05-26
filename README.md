@@ -6,7 +6,7 @@
 
 **Last Modified:** 26 May 2025.
 
-** [View the PDF](./Phd_thesis_template.pdf) **
+[View the PDF](./Phd_thesis_template.pdf)
 
 ---
 
