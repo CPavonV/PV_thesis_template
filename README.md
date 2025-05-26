@@ -1,12 +1,10 @@
 # PhD Thesis LaTeX Template
 
-**Original Author:** Ivan Colucci.
-
-**Revised & Adapted By:** Carlos Pavon.
+**Original Author:** Carlos Pavon.
 
 **Created:** January 2020.
 
-**Last Modified:** 23 May 2025.
+**Last Modified:** 26 May 2025.
 
 ---
 
@@ -28,11 +26,9 @@ It includes institutional branding, recommended formatting, and pre‑configured
 
 ## Change Log
 
-* **v1.0** – Initial release with institutional header (IC)
-* **v1.1** – Adapted for National PhD program, formatting adjustments, comments, and package management (CP)
-* **v1.2** – (Upcoming) Further improvements and refinements (XX)
-
----
+* **v1.0** – Initial release, including institutional header
+* **v1.1** – Adjustments for National PhD program: formatting refinements, enhanced comments, and improved package management
+* **v1.2** – Introduced new class 'pv_phd.cls' for scalability and improved structure. Added support for multiple universities
 
 ## Compilation Requirements
 
@@ -44,8 +40,9 @@ Ensure the following files and directories are present for successful LaTeX comp
 
 PhDThesis/
 ├── logo_unisa.png         # Institutional logo
+├── logo_zyxw.png          # Second Institutional logo
 ├── main.tex               # Main LaTeX file
-├── pv_phd.cls             # Main LaTeX file
+├── pv_phd.cls             # Class LaTeX file
 ├── references.bib         # Bibliography file
 ├── Sections/              # Each chapter/section as a separate .tex file
 │   ├── Introduction.tex
