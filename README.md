@@ -1,4 +1,5 @@
-# PhD Thesis LaTeX Template
+# PhD Thesis LaTeX Template [View the PDF](./Thesis_Template.pdf)
+
 
 **Original Author:** Carlos Pavon.
 
