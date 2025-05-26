@@ -1,9 +1,8 @@
 %---------------------------------------------------------------------------------------
-% File:                 phd_thesis_template.tex
-% Original Author:      Ivan Colucci
-% Revised & Adapted:    Carlos Pavon
-% Created:              January 2020
-% Last Modified:        22/05/2025
+% Class File:           pv_phd.cls
+% Original Author:      Carlos Pavon
+% Created:              22/05/2025
+% Last Modified:        26/05/2025
 
 % Description:
 %   A customizable LaTeX template for PhD theses at the
@@ -16,16 +15,19 @@
 %   Recommended for official submissions and archiving purposes.
 
 % Change Log:
-%   [v1.0]  Initial release with institutional header.................... IC
-%   [v1.1]  Adapted for National PhD program, formatting adjustments, 
-%           comments, and package management............................. CP
-%   [v1.2]  ............................................................. XX
+%   [v1.0]  Initial release, including institutional header................ IC
+%   [v1.1]  Adjustments for National PhD program: formatting refinements, 
+%           enhanced comments, and improved package management............. CP
+%   [v1.2]  Introduced new class 'pv_phd.cls' for scalability and 
+%           improved structure. Added support for multiple universities.... CP
+
 
 % Compilation Requirements:
 %   Ensure the following files and directories are present for successful compilation:
 %   - Figures/: image.png           (Add images - organize in subfolders if needed)
 %   - Sections/: Introduction.tex   (Add more sections as needed)
-%   - logo_unisa.png   
+%   - logo_unisa.png
+%   - logo_zyxw.png  
 %   - main.tex                  
 %   - pv_phd.cls         
 %   - references.bib            
@@ -46,17 +48,30 @@
 
 \begin{document}
 
+% Set university information
+\setuniversities
+  % First university logo
+  {logo_unisa}  
+  % Second university logo 
+  % Provide if applicable; otherwise, leave empty {}.
+  {logo_zyxw}          
+  % First university name
+  {UNIVERSITÀ DEGLI STUDI DI SALERNO}
+  % Second university name
+  % Provide if applicable; otherwise, leave empty {}.
+  {UNIVERSITÀ DEGLI STUDI DI SECOND-CAMPUS} 
+
 % Front Page
 \makefrontpage
   {Power Electronics and Control}      % #1 Curriculum
   {PhD Thesis Title}                   % #2 Title
   {A Subtitle if Needed}               % #3 Subtitle
   {Prof. Firstname Lastname}           % #4 Supervisor
-  {Prof. Firstname Lastname}           % #5 Co-supervisor
+  {Prof. Firstname Lastname}           % #5 Co-supervisor, Provide if applicable; otherwise, leave empty {}.
   {Candidate Name}                     % #6 Your Name
   {0123456789}                         % #7 Matricola
   {XXXVIII Cycle \\ 2022 - 2025}       % #8 Cycle and Dates
-
+  
 % Dedication
 \begin{dedication}
 
@@ -69,10 +84,14 @@
 
 % Inclusion of Chapters
 
-\include{Sections/Introduction.tex} % Recommended practice for maintaining a well-organized main.tex file
+\include{Sections/01_Introduction.tex}
+\include{Sections/02_Literature_Review.tex}
 
-\chapter{Literature Review}
-\blindtext[7] % Generates Lorem Ipsum
+% \chapter{Introduction}
+% \blindtext[7] % Generates Lorem Ipsum
+
+% \chapter{Literature Review}
+% \blindtext[7] % Generates Lorem Ipsum
 
 \chapter{Methodology}
 \blindtext[5] % Generates Lorem Ipsum

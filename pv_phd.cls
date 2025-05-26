@@ -213,43 +213,78 @@
 %---------------------------------------------------------------------------------------
 % FRONT PAGE COMMAND (Function-style Definition)
 %---------------------------------------------------------------------------------------
-\newcommand{\makefrontpage}[8]{%
+
+\newcommand{\setuniversities}[4]{%
+  \def\@firstlogo{#1}%
+  \def\@secondlogo{#2}%
+  \def\@firstname{#3}%
+  \def\@secondname{#4}%
+}
+
+\setuniversities{logo_unisa}{logo_zyxw.png}{UNIVERSITÀ DEGLI STUDI DI SALERNO}{UNIVERSITÀ DEGLI STUDI DI SECOND-SEDE}
+      % --- University Information ---
+\newcommand{\makefrontpage}[8]{
   \begin{titlepage}
+    \ifx\@secondlogo\empty
       \begin{center}
-          \LARGE{\uppercase{Università degli Studi di Salerno}}\\
-          \vspace{5mm}
-          \large{\textbf{NATIONAL PHD IN PHOTOVOLTAICS}}\\
-          \normalsize{Curriculum: #1}
+        \large \@firstname \\
+        \vspace{5mm}  
+        \includegraphics[width=0.25\textwidth]{\@firstlogo}\\
       \end{center}
-
-      \vspace{10mm}
-      \begin{figure}[H]
+    \else
+      \hspace*{-2.5cm}
+      \makebox[1.5\textwidth][l]{
+        \begin{minipage}{0.4\textwidth}
+          \raggedright
+          \centering 
+          \small \@firstname \\
+          \vspace{2mm}  
+          \includegraphics[width=0.5\textwidth]{\@firstlogo}\\
+        \end{minipage}
+        
+        \hspace{5cm}
+        
+        \begin{minipage}{0.4\textwidth}
+          \raggedleft
           \centering
-          \includegraphics[width=0.35\textwidth]{logo_unisa}
-      \end{figure}
-
+          \small \@secondname \\
+          \vspace{2mm}  
+          \includegraphics[width=0.5\textwidth]{\@secondlogo}\\
+        \end{minipage}
+      }
+    \fi
+    \vspace{7mm}           
+      % --- Title and Curriculum Info ---
+      \begin{center}
+          \Large{PHD IN PHOTOVOLTAICS}\\
+          \normalsize{Dottorato di interesse nazionale in Photovoltaics}\\
+          \vspace{5mm}
+          \normalfont{\textbf{Curriculum: #1}}\\
+      \end{center}
+      % --- Thesis Title and Subtitle ---
       \vspace{10mm}
       \begin{center}
-          {\Huge \bfseries #2}\\
+          {\huge \bfseries #2}\\
           \vspace{5mm}
-          \Large{\textit{#3}}\\
+          \large{\textit{#3}}\\
           \vspace{8mm}
       \end{center}
-
+      % --- Supervisors and Candidate Info ---
       \noindent
       \begin{minipage}[t]{0.47\textwidth}
-          {\large{Supervisor:\\ \bf #4}}\\[6mm]
-          {\large{Co-Supervisor:\\ \bf #5}}\\[6mm]
-          {\large{PhD Program Director:\\ \bf Prof. Giovanni Spagnuolo}}\\[6mm]
+          {\normalsize{Supervisor:\\ \bf #4}}\\[6mm]
+          \ifx\relax#5\relax
+          \else
+            {\normalsize{Co-Supervisor:\\ \bf #5}}\\[6mm]
+          \fi
+          {\normalsize{PhD Program Director:\\ \bf Prof. Giovanni Spagnuolo}}\\[6mm]
       \end{minipage}
       \hfill
       \begin{minipage}[t]{0.4\textwidth}\raggedleft
-          {\large{PhD Candidate: \\ \bf #6\\ Mat. #7}}
+          {\normalsize{PhD Candidate: \\ \bf #6\\ Mat. #7}}
       \end{minipage}
-
       \vfill
-      \centering{\large #8}
+      \centering{\normalsize #8}
   \end{titlepage}
-
   \clearpage
 }
