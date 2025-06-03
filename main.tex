@@ -24,9 +24,10 @@
 
 % Compilation Requirements:
 %   Ensure the following files and directories are present for successful compilation:
-%   - Figures/: image.png            (Add images - organize in subfolders if needed)
-%   - Sections/: 01_Introduction.tex (Add more sections as needed)
-%                02_Literature_Review.tex
+%   - Figures/:     cover_page.pdf          (PhD institutional branding)
+%                   image.png               (Add images - organize in subfolders if needed)
+%   - Sections/:    01_Introduction.tex     (Add more sections as needed)
+%                   02_Literature_Review.tex
 %   - logo_unisa.png
 %   - logo_zyxw.png  
 %   - main.tex                  
@@ -43,11 +44,16 @@
 \documentclass{pv_phd}
 
 % Acronyms and Glossaries example of usage
-\newacronym{sdm}{SDM}{Single Diode Model}           % Example {key}{SHORT}{Long Form} 
-    % The \gls{sdm} system...                       % In-text use for singular
-    % The \glspl{sdm} system...                     % In-text use for plural
+\newacronym{sdm}{SDM}{Single Diode Model}           
+% Example {key}{SHORT}{Long Form} 
+    % The \gls{sdm} system...                       
+    % In-text use for singular
+    % The \glspl{sdm} system...                     
+    % In-text use for plural
 
 \begin{document}
+\pagenumbering{gobble}                  % Hide page numbers
+\pagestyle{empty}
 
 % Set university information
 \setuniversities
@@ -68,22 +74,38 @@
   {PhD Thesis Title}                   % #2 Title
   {A Subtitle if Needed}               % #3 Subtitle
   {Prof. Firstname Lastname}           % #4 Supervisor
-  {Prof. Firstname Lastname}           % #5 Co-supervisor, Provide if applicable;                                                    otherwise, leave empty {}.
+  {Prof. Firstname Lastname}           % #5 Co-supervisor, Provide if applicable; otherwise, leave empty {}.
   {Candidate Name}                     % #6 Your Name
   {0123456789}                         % #7 Matricola
   {XXXVIII Cycle \\ 2022 - 2025}       % #8 Cycle and Dates
-  
+
+% Optional second full-page figure (PhD PV institutional cover)
+\cleardoublepage
+\thispagestyle{empty}
+\includepdf[pages=1]{Figures/cover_page.pdf}
+\cleardoublepage
+
 % Dedication
+\cleardoublepage
 \begin{dedication}
 
     Dedicated to ...
-
+    
 \end{dedication}
 
 % Table of Contents
-    \tableofcontents \clearpage \sloppy \hyphenpenalty=10000 \exhyphenpenalty=10000
+\cleardoublepage
+\tableofcontents
+\clearpage
+\sloppy
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
 
 % Inclusion of Chapters
+\cleardoublepage        % Ensures the next page starts on an odd-numbered
+\pagenumbering{arabic}  % Start numbering from this page
+\setcounter{page}{1}    % Set this page as page 1
+\pagestyle{headings}    % Apply regular page style for chapters
 
 \include{Sections/01_Introduction.tex}
 \include{Sections/02_Literature_Review.tex}

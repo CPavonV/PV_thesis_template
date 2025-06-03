@@ -22,7 +22,7 @@
 %---------------------------------------------------------------------------------------
 % BASE CLASS
 %---------------------------------------------------------------------------------------
-\LoadClass[b5paper,10pt,twoside]{book}
+\LoadClass[b5paper,10pt,twoside,openright]{book}
 
 %---------------------------------------------------------------------------------------
 % BASIC DOCUMENT SETUP AND ENCODING
@@ -55,6 +55,7 @@
 % GRAPHICS AND IMAGES
 %---------------------------------------------------------------------------------------
 \RequirePackage{graphicx}               % For including images
+\RequirePackage{pdfpages}               % For including PDF
 \RequirePackage{svg}                    % Enables inclusion of SVG images
 \RequirePackage{float}                  % Provides enhanced control over float placement
 \graphicspath{{./Figures/}}             % Specifies the default directory for figures
