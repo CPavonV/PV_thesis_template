@@ -28,9 +28,9 @@ It includes institutional branding, recommended formatting, and pre‑configured
 
 ## Change Log
 
-* **v1.0** – Initial release, including institutional header
-* **v1.1** – Adjustments for National PhD program: formatting refinements, enhanced comments, and improved package management
-* **v1.2** – Introduced new class 'pv_phd.cls' for scalability and improved structure. Added support for multiple universities
+* **v1.0** – Initial release, including institutional header.
+* **v1.1** – Adjustments for National PhD program: formatting refinements, enhanced comments, and improved package management.
+* **v1.2** – Introduced new class 'pv_phd.cls' for scalability and improved structure. Added support for multiple universities.
 
 ## Compilation Requirements
 
