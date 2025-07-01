@@ -258,7 +258,7 @@
       % --- Title and Curriculum Info ---
       \begin{center}
           \Large{PHD IN PHOTOVOLTAICS}\\
-          \normalsize{Dottorato di interesse nazionale in Photovoltaics}\\
+          \normalsize{Dottorato di Interesse Nazionale in Photovoltaics}\\
           \vspace{5mm}
           \normalfont{\textbf{Curriculum: #1}}\\
       \end{center}
