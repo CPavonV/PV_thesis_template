@@ -270,14 +270,16 @@
 % FRONT PAGE COMMAND (Function-style Definition)
 %---------------------------------------------------------------------------------------
 
-\newcommand{\setuniversities}[4]{%
+\newcommand{\setuniversities}[6]{%
   \def\@firstlogo{#1}%
   \def\@secondlogo{#2}%
   \def\@firstname{#3}%
   \def\@secondname{#4}%
+  \def\@firstdepartment{#5}%
+  \def\@seconddepartment{#6}%
 }
 
-\setuniversities{logo_unisa}{logo_zyxw.png}{UNIVERSITÀ DEGLI STUDI DI SALERNO}{UNIVERSITÀ DEGLI STUDI DI SECOND-SEDE}
+\setuniversities{logo_unisa.png}{logo_zyxw.png}{UNIVERSITÀ DEGLI STUDI DI SALERNO}{UNIVERSITÀ DEGLI STUDI DI SECOND-SEDE}{Default First Department}{Default Second Department}
       % --- University Information ---
 \newcommand{\makefrontpage}[8]{
   \begin{titlepage}
@@ -285,8 +287,8 @@
       \begin{center}
         \Large \textbf{\@firstname} \\
         \vspace{5mm}
-        \includegraphics[width=0.3\textwidth]{\@firstlogo}\\
-         Dipartimento di Ingegneria dell’Informazione ed Elettrica e Matematica Applicata
+        \includegraphics[width=0.3\textwidth]{\@firstlogo} \\
+        \@firstdepartment
       \end{center}
     \else
       \hspace*{-2.0cm}
@@ -296,17 +298,17 @@
           \centering
           \small \@firstname \\
           \vspace{2mm}
-          \includegraphics[width=0.5\textwidth]{\@firstlogo}\\
-          \small Dipartimento di Ingegneria dell’Informazione ed Elettrica e Matematica Applicata\\
+          \includegraphics[width=0.5\textwidth]{\@firstlogo} \\
+          \small \@firstdepartment \\
         \end{minipage}
-        \hspace{2.0cm}
+        \hspace{1.0cm}
         \begin{minipage}{0.5\textwidth}
           \raggedleft
           \centering
           \small \@secondname \\
           \vspace{2mm}
-          \includegraphics[width=0.5\textwidth]{\@secondlogo}\\
-          \small \textcolor{white}{Dipartimento di Ingegneria dell’Informazione ed Elettrica}\\
+          \includegraphics[width=0.5\textwidth]{\@secondlogo} \\
+          \small \@seconddepartment \\
         \end{minipage}
       }
     \fi
@@ -314,22 +316,22 @@
       % --- Title and Curriculum Info ---
       \begin{center}
           %\Large \textbf{\textcolor{red}{.}\textcolor{blue}{DIEM}}\\
-          \vspace{3mm}
+          \vspace{1mm}
           \Large{\textbf{PHD IN PHOTOVOLTAICS}}\\
           \vspace{2mm}
-          \small{\textbf{Curriculum: #1}}\\
-          \vspace{4mm}          
-          \normalsize{Dottorato di Interesse Nazionale in Photovoltaics}\\
-          \vspace{4mm}
+          \normalsize{\textbf{Curriculum: #1}}\\
+          \vspace{2mm}          
+          \large{Dottorato di Interesse Nazionale in Photovoltaics}\\
+          \vspace{2mm}
           
       \end{center}
       % --- Thesis Title and Subtitle ---
-      \vspace{4mm}
+      \vspace{2mm}
       \begin{center}
           {\huge \bfseries #2}\\
           \vspace{2mm}
           \large{\textit{#3}}\\
-          \vspace{6mm}
+          \vspace{16mm}
       \end{center}
       % --- Supervisors and Candidate Info ---
       \noindent
