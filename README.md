@@ -4,7 +4,7 @@
 
 **Created:** January 2024.
 
-**Last Modified:** 25 Jul 2025.
+**Last Modified:** 17 Otober 2025.
 
 [View the PDF](./Phd_thesis_template.pdf)
 
