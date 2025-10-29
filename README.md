@@ -46,6 +46,7 @@ PhDThesis/
 ├── logo_zyxw.png          # Second Institutional logo
 ├── main.tex               # Main LaTeX file
 ├── pv_phd.cls             # Class LaTeX file
+├── pv_phd.bst             # Bibliography style (based on Elsevier numbered style)
 ├── references.bib         # Bibliography file
 ├── Sections/              # Each chapter/section as a separate .tex file
 │   ├── 01_Introduction.tex
